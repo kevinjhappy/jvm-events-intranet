@@ -2,9 +2,13 @@ version: '3.7'
 
 services:
     db:
-        image: mysql:8.0.17
-        command: --default-authentication-plugin=mysql_native_password
-        restart: always
+        image: mysql:latest
+        ports:
+            - ${MYAPP_DB_PORT:-3306}:3306
+#        command: --default-authentication-plugin=mysql_native_password
+#        restart: always
+#        volumes:
+#            - 'db_data:/var/lib/mysql'
         environment:
             - MYSQL_RANDOM_ROOT_PASSWORD=yes
             - MYSQL_DATABASE=${MYSQL_DATABASE}
