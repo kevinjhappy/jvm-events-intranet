@@ -1,5 +1,5 @@
-install: composer-install clear-cache
-start: server-start docker-start
+install: composer-install yarn-install clear-cache
+start: server-start docker-start yarn-encore
 stop: server-stop docker-stop
 
 ENV ?=prod
@@ -26,6 +26,12 @@ docker-start:
 
 docker-stop:
 	docker-compose stop
+
+yarn-install:
+	yarn install
+
+yarn-encore:
+	yarn encore $(ENV)
 
 check:
 	symfony check:requirements
