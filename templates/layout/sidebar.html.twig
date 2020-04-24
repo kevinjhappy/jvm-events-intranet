@@ -17,6 +17,12 @@
                 Staff
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link {{ app.request.attributes.get('_route') matches '#^(staff)#' ? 'active' }}" href="{{ path('staff_index') }}">
+                <i class="fas fa-chalkboard-teacher feather"></i>
+                Jeux
+            </a>
+        </li>
     </ul>
 
 {#    {% if selectedEvent %}#}
