@@ -35,3 +35,6 @@ yarn-encore:
 
 check:
 	symfony check:requirements
+
+cs: ## Executes php cs fixer
+	bash -c "vendor/bin/php-cs-fixer --no-interaction --diff -v fix"
