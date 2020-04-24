@@ -20,8 +20,11 @@ jobs:
     # - name: Install dependencies
     #   run: composer install --prefer-dist --no-progress --no-suggest
     
-    - name: OSKAR-PHP-CS-Fixer
-      uses: OskarStark/php-cs-fixer-ga@2.16.3.1
+    # - name: OSKAR-PHP-CS-Fixer
+    #   uses: OskarStark/php-cs-fixer-ga@2.16.3.1
+    
+    - name: PHP Code Style Fixer (php-cs-fixer)
+      uses: StephaneBour/actions-php-cs-fixer@1.0.2
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
