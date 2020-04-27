@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block body %}
+    <a class="btn btn-block btn-social btn-google" href="{{ path('sign_in_with_google') }}">
+        <span class="fa fa-google"></span>Se connecter avec Google
+    </a>
+    <a class="btn btn-block btn-social btn-google" href="{{ path('sign_in_with_facebook') }}">
+        <span class="fa fa-facebook"></span>Se connecter avec Facebook
+    </a>
+
+{% endblock %}
