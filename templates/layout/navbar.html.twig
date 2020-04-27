@@ -1,0 +1,67 @@
+{#<div class="sidebar-sticky">#}
+{#    {% if selectedEvent %}#}
+{#        <ul class="nav flex-column">#}
+{#            <li class="nav-item">#}
+{#                <a class="nav-link {{ app.request.attributes.get('_route') matches '#^(event_select)$#' ? 'active' }}" href="{{ path('event_select', {'id': selectedEvent.id}) }}">#}
+{#                    <i class="fas fa-home feather"></i>#}
+{#                    Dashboard#}
+{#                </a>#}
+{#            </li>#}
+{#        </ul>#}
+{#    {% endif %}#}
+
+{#    <ul class="nav flex-column">#}
+{#        <li class="nav-item">#}
+{#            <a class="nav-link {{ app.request.attributes.get('_route') matches '#^(staff)#' ? 'active' }}" href="{{ path('staff_index') }}">#}
+{#                <i class="fas fa-chalkboard-teacher feather"></i>#}
+{#                Staff#}
+{#            </a>#}
+{#        </li>#}
+{#        <li class="nav-item">#}
+{#            <a class="nav-link {{ app.request.attributes.get('_route') matches '#^(staff)#' ? 'active' }}" href="{{ path('staff_index') }}">#}
+{#                <i class="fas fa-chalkboard-teacher feather"></i>#}
+{#                Jeux#}
+{#            </a>#}
+{#        </li>#}
+{#    </ul>#}
+
+{#    {% if selectedEvent %}#}
+
+{#    {% endif %}#}
+{#</div>#}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="{{ path('home') }}">
+        <img src="/img/JVM-logo.png" width="60" height="39" alt="JVM" style="border-radius: 10%; padding: 0; margin: 0">
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link {{ app.request.attributes.get('_route') matches '#^(staff)#' ? 'active' }}" href="{{ path('staff_index') }}">
+                Staff
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ app.request.attributes.get('_route') matches '#^(partners)#' ? 'active' }}" href="{{ path('partners_index') }}">
+                    Jeux
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Options
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {# For demo #}
+                    <a class="dropdown-item" href="#">Empty Action</a>
+                    <a class="dropdown-item" href="#">Another empty action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
