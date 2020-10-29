@@ -39,7 +39,6 @@ final class SecuritySignIn extends AbstractController
             ->redirect();
     }
 
-
     /**
      * @Route("/sign_in_with_facebook", name="sign_in_with_facebook", methods={"GET"})
      */

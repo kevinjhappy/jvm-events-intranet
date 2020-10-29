@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StaffRepository")
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class Staff implements UserInterface
 {
@@ -30,7 +32,7 @@ class Staff implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $emailAddress;
+    private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -46,6 +48,12 @@ class Staff implements UserInterface
      * @ORM\Column(type="json")
      */
     private $roles = [];
+
+    /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     */
+    private $password;
 
     public function getId(): ?int
     {
@@ -76,14 +84,14 @@ class Staff implements UserInterface
         return $this;
     }
 
-    public function getEmailAddress(): ?string
+    public function getEmail(): ?string
     {
-        return $this->emailAddress;
+        return $this->email;
     }
 
-    public function setEmailAddress(string $emailAddress): self
+    public function setemail(string $email): self
     {
-        $this->emailAddress = $emailAddress;
+        $this->email = $email;
 
         return $this;
     }
@@ -119,7 +127,7 @@ class Staff implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->emailAddress;
+        return (string) $this->email;
     }
 
     /**
@@ -144,9 +152,16 @@ class Staff implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getPassword()
+    public function getPassword(): string
     {
-        // not needed for apps that do not check user passwords
+        return (string) $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
     }
 
     /**
